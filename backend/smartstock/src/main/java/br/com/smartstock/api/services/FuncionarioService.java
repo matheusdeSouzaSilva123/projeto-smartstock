@@ -15,17 +15,35 @@ public class FuncionarioService {
 	private FuncionarioRepository repository;
 	
 	public List<Funcionario> listarTodos() {
-		return repository.findAll();
-	}
-	
-	public Funcionario salvar(Funcionario cadastrarFuncionario) {
-		return repository.save(cadastrarFuncionario);
-	}
-
-	public Optional<Funcionario> buscarPorId(Long id) {
-        return repository.findById(id);
+        return repository.findAll();
     }
 
+	    public Optional<Funcionario> buscarPorId(Long id) {
+	        return repository.findById(id);
+	    }
 
+    public Funcionario salvar(Funcionario func) {
+        return repository.save(func);
+    }
+    
+    public Funcionario atualizar(Long id, Funcionario funcAtualizado) {
+    	Optional <Funcionario> funcExistente = buscarPorId(id);
+    	
+    	if(funcExistente.isPresent()) {
+    		Funcionario atualizado = funcExistente.get();
+    		
+    		atualizado.setCargo(funcAtualizado.getCargo());
+    		atualizado.setEmail(funcAtualizado.getEmail());
+    		atualizado.setSenha(funcAtualizado.getSenha());
+    		
+    		return repository.save(atualizado);
+    	}
+    	
+    	return null;
+    }
+    
+    public void deletar(Long id) {
+    	repository.deleteById(id);
+    }
 	
 }
