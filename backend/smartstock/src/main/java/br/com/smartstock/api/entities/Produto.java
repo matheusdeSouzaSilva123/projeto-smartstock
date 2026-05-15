@@ -1,7 +1,7 @@
 package br.com.smartstock.api.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +38,7 @@ public class Produto {
 	private BigDecimal precoVenda;
 	
 	@NotNull(message = "A data de validade deve ser uma data futura.")
-	private LocalDate dataVencimento;
+	private Date dataVencimento;
 	
 	@NotNull(message = "A quantidade é obrigatória.")
 	@PositiveOrZero(message = "A quantidade não pode ser negativa.")
@@ -50,11 +50,12 @@ public class Produto {
 
 	public Produto() {}
 	
-	public Produto(String nome, String codigoBarras, BigDecimal precoVenda, LocalDate dataVencimento, Integer unidade) {
+	public Produto(String nome, String codigoBarras, BigDecimal precoVenda, Date dataVencimento, Integer unidade) {
 		this.nome = nome;
 		this.codigoBarras = codigoBarras;
 		this.dataVencimento = dataVencimento;
 		this.unidade = unidade;
+		this.precoVenda = precoVenda;
 		
 	}
 
@@ -90,11 +91,11 @@ public class Produto {
 		this.codigoBarras = codigoBarras;
 	}
 
-	public LocalDate getDataVencimento() {
+	public Date getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public void setDataVencimento(LocalDate dataVencimento) {
+	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
 

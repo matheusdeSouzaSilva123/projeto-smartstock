@@ -2,8 +2,6 @@ package br.com.smartstock.api.entities;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.br.CNPJ;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,7 +40,6 @@ public class Fornecedor {
 	private String logradouroComercio;
 	
 	@NotBlank
-    @CNPJ 
     @Column(unique = true)
     private String cnpj;
 	
