@@ -3,6 +3,7 @@ package br.com.smartstock.api.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.smartstock.api.entities.Cliente;
@@ -11,6 +12,7 @@ import br.com.smartstock.api.repositories.ClienteRepository;
 @Service
 public class ClienteService {
 
+	@Autowired
 	private ClienteRepository repository;
 	
 	public List<Cliente> listarTodos() {

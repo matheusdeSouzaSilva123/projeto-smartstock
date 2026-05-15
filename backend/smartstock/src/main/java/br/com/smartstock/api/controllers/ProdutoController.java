@@ -37,7 +37,7 @@ public class ProdutoController {
 	    public ResponseEntity<Produto> buscar(@PathVariable Long id) {
 	    	Optional<Produto> prod = service.buscarPorId(id);
 	    	
-	    	if(prod != null) {
+	    	if(prod.isPresent()) {
 	    		return ResponseEntity.ok(prod.get());
 	    	}
 	    	

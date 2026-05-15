@@ -51,6 +51,7 @@ public class MovimentacaoEstoque {
     	this.dataHora = dataHora;
     	this.tipo = tipo;
     	this.quantidade = quantidade;
+    	this.notaFiscal = notaFiscal;
     }
 
 	public Long getId() {

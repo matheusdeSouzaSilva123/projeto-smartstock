@@ -31,7 +31,7 @@ public class FornecedorController {
     public ResponseEntity<Fornecedor> buscar(@PathVariable Long id) {
         Optional<Fornecedor> forn = service.buscarPorId(id);
         
-        if(forn != null) {
+        if(forn.isPresent()) {
             return ResponseEntity.ok(forn.get());
         }
         
