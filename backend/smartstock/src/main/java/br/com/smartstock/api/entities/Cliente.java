@@ -35,30 +35,30 @@ public class Cliente {
     @Column(unique = true, length = 120)
 	private String email;
 	
-	@NotBlank(message = "A senha é obrigatória.")
-	@Size(min = 6, message = "A senha deve conter no minímo 6 caracteres.")
-	@Column(nullable = false)
-	private String senha;
+	@Column(length = 255)
+	private String endereco;
 	
 	public Cliente() {}
 	
-	public Cliente (String nomeCliente, String telefoneCelular, String telefoneComercial, String email, String senha) {
+	public Cliente (String nomeCliente, String telefoneCelular, String telefoneComercial, String email, String endereco) {
 		this.nomeCliente = nomeCliente;
 		this.telefoneCelular = telefoneCelular;
 		this.email = email;
-		this.senha = senha;
+		this.endereco = endereco;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getSenha() {
-		return senha;
+
+
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public void setId(Long id) {

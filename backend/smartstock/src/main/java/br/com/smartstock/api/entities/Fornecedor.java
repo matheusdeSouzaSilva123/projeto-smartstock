@@ -1,10 +1,15 @@
 package br.com.smartstock.api.entities;
 
+import java.util.List;
+
+import org.hibernate.validator.constraints.br.CNPJ;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -36,23 +41,24 @@ public class Fornecedor {
 	@Size(min = 3, max = 150, message = "O logradouro deve ter entre 3 e 150 caracteres")
 	private String logradouroComercio;
 	
-	@NotBlank(message = "A senha é obrigatória.")
-	@Size(min = 6, message = "A senha deve conter no minímo 6 caracteres.")
-	@Column(nullable = false)
-	private String senha;
+	@NotBlank
+    @CNPJ 
+    @Column(unique = true)
+    private String cnpj;
 	
+	@OneToMany(mappedBy = "fornecedor")
+    private List<Produto> produtos;
 	
 	
 	public Fornecedor () {}
 	
 	
-	
-	public Fornecedor(Long id, String nome, String email, String telefoneComercial, String logradouroComercio, String senha) {
+	public Fornecedor(String nome, String email, String telefoneComercial, String logradouroComercio, String cnpj) {
 		this.nome = nome;
 		this.email = email;
 		this.telefoneComercial = telefoneComercial;
 		this.logradouroComercio = logradouroComercio;
-		this.senha = senha;
+		this.cnpj = cnpj;
 	}
 
 
@@ -116,16 +122,17 @@ public class Fornecedor {
 	}
 
 
+	public String getCnpj() {
+		return cnpj;
+	}
 
-	public String getSenha() {
-		return senha;
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 	
 	
 }

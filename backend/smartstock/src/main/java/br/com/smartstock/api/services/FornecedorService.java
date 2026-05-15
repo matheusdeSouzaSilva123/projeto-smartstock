@@ -28,9 +28,9 @@ public class FornecedorService {
 		
 			atualizado.setNome(fornecedorAtualizado.getNome());
 			atualizado.setEmail(fornecedorAtualizado.getEmail());
-			atualizado.setSenha(fornecedorAtualizado.getSenha());
 			atualizado.setTelefoneComercial(fornecedorAtualizado.getTelefoneComercial());
 			atualizado.setLogradouroComercio(fornecedorAtualizado.getLogradouroComercio());
+			atualizado.setCnpj(fornecedorAtualizado.getCnpj());
 			
 			return repository.save(atualizado);
 		}

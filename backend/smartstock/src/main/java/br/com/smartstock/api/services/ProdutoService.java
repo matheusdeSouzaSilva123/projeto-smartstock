@@ -39,7 +39,7 @@ public class ProdutoService {
 			atualizado.setDataVencimento(produtoAlterado.getDataVencimento());
 			atualizado.setPrecoVenda(produtoAlterado.getPrecoVenda());
 			atualizado.setUnidade(produtoAlterado.getUnidade());
-			atualizado.setNotaFiscal(produtoAlterado.getNotaFiscal());
+
 			
 			return repository.save(atualizado);
 

@@ -20,7 +20,7 @@ import br.com.smartstock.api.services.FornecedorService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/fornecedores")
+@RequestMapping("api/fornecedores")
 @CrossOrigin("*")
 public class FornecedorController {
 

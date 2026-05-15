@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -41,12 +43,10 @@ public class Produto {
 	@NotNull(message = "A quantidade é obrigatória.")
 	@PositiveOrZero(message = "A quantidade não pode ser negativa.")
 	private Integer unidade;
-
-	@NotBlank(message = "Este campo não pode estar vazio.")
-	private String notaFiscal;
 	
-	
-	
+	@ManyToOne
+    @JoinColumn(name = "fornecedor_id") 
+    private Fornecedor fornecedor;
 
 	public Produto() {}
 	
@@ -106,13 +106,6 @@ public class Produto {
 		this.unidade = unidade;
 	}
 	
-	public String getNotaFiscal() {
-		return notaFiscal;
-	}
-
-	public void setNotaFiscal(String notaFiscal) {
-		this.notaFiscal = notaFiscal;
-	}
 	
 	
 	

@@ -34,7 +34,9 @@ public class FuncionarioService {
     		
     		atualizado.setCargo(funcAtualizado.getCargo());
     		atualizado.setEmail(funcAtualizado.getEmail());
-    		atualizado.setSenha(funcAtualizado.getSenha());
+    		atualizado.setNome(funcAtualizado.getNome());
+    		atualizado.setCpf(funcAtualizado.getCpf());
+    		atualizado.setRg(funcAtualizado.getRg());
     		
     		return repository.save(atualizado);
     	}
