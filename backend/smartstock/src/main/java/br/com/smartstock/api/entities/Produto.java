@@ -35,6 +35,7 @@ public class Produto {
 	
 	@NotNull(message = "O preço é obrigatório.")
 	@PositiveOrZero
+	@Column(nullable = false, precision = 12, scale = 2)
 	private BigDecimal precoVenda;
 	
 	@NotNull(message = "A data de validade deve ser uma data futura.")
